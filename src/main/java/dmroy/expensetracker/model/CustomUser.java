@@ -36,6 +36,16 @@ public class CustomUser implements Serializable {
     @Column(name = "registration_dttm")
     private Date registrationDttm;
 
+
+    public String getUserIdString() {
+        String result = userId.toString();
+        return result.replaceAll(" ","");
+    }
+
+    public String getFI(){
+        return ((secondName != null ? secondName.trim() + " " : "") + (firstName != null ? firstName.trim() : "")).trim();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

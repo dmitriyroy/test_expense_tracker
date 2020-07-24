@@ -1,25 +1,19 @@
 <#-- Freemarker template -->
 <html>
 <#include "*/page_head.ftl">
-
 <body id="page-top" <#if toggleMenu == '1'>class="sidebar-toggled"</#if>>
-
   <!-- Page Wrapper -->
   <div id="wrapper">
-    <#include "*/menu/menu_left_check.ftl">
+    <#include "*/menu_left.ftl">
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
-
       <!-- Main Content -->
       <div id="content">
-
         <!-- Topbar -->
-        <#include "*/menu/menu_top.ftl">
+        <#include "*/menu_top.ftl">
         <!-- End of Topbar -->
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
@@ -108,9 +102,7 @@
           </div>
 
           <!-- Content Row -->
-
           <div class="row">
-
             <!-- Area Chart -->
             <div class="col-xl-8 col-lg-7">
               <div class="card shadow mb-4">
@@ -181,10 +173,8 @@
 
           <!-- Content Row -->
           <div class="row">
-
             <!-- Content Column -->
             <div class="col-lg-6 mb-4">
-
               <!-- Project Card Example -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -265,7 +255,6 @@
                   </div>
                 </div>
               </div>
-
             </div>
 
             <div class="col-lg-6 mb-4">
@@ -297,30 +286,21 @@
 
             </div>
           </div>
-
         </div>
         <!-- /.container-fluid -->
-
       </div>
       <!-- End of Main Content -->
-
       <!-- Footer -->
-      <#include "*/blocks/copyright.ftl">
+<#--      <#include "*/blocks/copyright.ftl">-->
       <!-- End of Footer -->
-
     </div>
     <!-- End of Content Wrapper -->
-
   </div>
   <!-- End of Page Wrapper -->
-
   <!-- Scroll to Top Button-->
   <#include "*/scroll_to_top_button.ftl">
-
   <!-- Logout Modal-->
   <#include "*/logout_modal.ftl">
-
-<#include "*/blocks/copyright.ftl">
+  <#include "*/footer_include_js.ftl">
 </body>
-
 </html>

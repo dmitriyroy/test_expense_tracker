@@ -1,27 +1,32 @@
 <#-- Freemarker template -->
 <html>
 <#include "*/page_head.ftl">
+<#import "*/pager.ftl" as p>
 <body id="page-top" <#if toggleMenu == '1'>class="sidebar-toggled"</#if>>
   <!-- Page Wrapper -->
   <div id="wrapper">
-    <#include "*/menu/menu_left_check.ftl">
+    <#include "*/menu_left.ftl">
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
       <!-- Main Content -->
       <div id="content">
         <!-- Topbar -->
-        <#include "*/menu/menu_top.ftl">
+        <#include "*/menu_top.ftl">
         <!-- End of Topbar -->
         <!-- Begin Page Content -->
         <div class="container-fluid">
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+          <div class="h3 mb-4 text-gray-800 text-center mx-auto">${header!""}</div>
+
+
+
+
         </div>
         <!-- /.container-fluid -->
       </div>
       <!-- End of Main Content -->
       <!-- Footer -->
-      <#include "*/blocks/copyright.ftl">
+<#--      <#include "*/blocks/copyright.ftl">-->
       <!-- End of Footer -->
     </div>
     <!-- End of Content Wrapper -->

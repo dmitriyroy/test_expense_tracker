@@ -1,26 +1,3 @@
--- Role: expense_tracker
--- DROP ROLE expense_tracker;
-CREATE ROLE expense_tracker WITH
-  LOGIN
-  SUPERUSER
-  INHERIT
-  CREATEDB
-  CREATEROLE
-  NOREPLICATION
-  ENCRYPTED PASSWORD 'md5de3c070e14aa25e5dd302108dee486ae';
-COMMENT ON ROLE expense_tracker IS 'Test Project - Expense Tracker';
-
--- Database: expense_tracker
--- DROP DATABASE expense_tracker;
-CREATE DATABASE expense_tracker
-    WITH 
-    OWNER = expense_tracker
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'Russian_Russia.1251'
-    LC_CTYPE = 'Russian_Russia.1251'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1;
-
 /*==============================================================*/
 /* DBMS name:      PostgreSQL 8                                 */
 /* Created on:     23.07.2020 22:48:56                          */
@@ -45,7 +22,7 @@ drop table if exists user_role cascade;
 /*==============================================================*/
 create table expense (
    expense_id           serial               not null,
-   expense_dttm         date                 null,
+   expense_dttm         timestamp            null,
    expense_description  varchar(255)         null,
    expense_amount       numeric(15,2)        null,
    expense_comment      varchar(1024)        null,
@@ -111,7 +88,7 @@ primary_id
 create table spring_session_attributes (
    session_primary_id   char(36)             not null,
    attribute_name       varchar(200)         not null,
-   attribute_bytes      char                 not null,
+   attribute_bytes      bytea                not null,
    constraint pk_spring_session_attributes primary key (session_primary_id, attribute_name)
 );
 

@@ -22,23 +22,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                     .antMatchers("/login",
-                            "/new-registration",
                             "/registration/**",
-                            "/wait-verification-mail/**",
-                            "/send-verification-mail/**",
-                            "/verification-mail/**",
-                            "/forgot-password",
-                            "/reset-password",
+                            "/new-registration",
                             "/api/**",
                             "/image/**",
-                            "/reset-password-form",
                             "/logout",
+                            "/img/**",
                             "/css/**",
                             "/scss/**",
                             "/js/**",
-                            "/vendor/**",
-                            "/403",
-                            "/404").permitAll()
+                            "/vendor/**").permitAll()
                     // прописываем все урлы, куда есть доступ верифицированным пользователям
                     // т.е. (прошедшим email-валидацию)
                     .antMatchers("/index","/")
@@ -53,8 +46,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .formLogin()
                     .loginPage("/login").permitAll()
-                .and()
-                    .exceptionHandling().accessDeniedPage("/403")
+//                .and()
+//                    .exceptionHandling().accessDeniedPage("/403")
                 .and()
                     .logout()
                     .logoutSuccessUrl("/login").permitAll()

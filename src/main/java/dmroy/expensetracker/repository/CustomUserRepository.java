@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends PagingAndSortingRepository<CustomUser, Integer> {
+public interface CustomUserRepository extends PagingAndSortingRepository<CustomUser, Integer> {
 
     @Override
     public Iterable<CustomUser> findAll(Sort sort);
@@ -40,10 +40,5 @@ public interface UserRepository extends PagingAndSortingRepository<CustomUser, I
     @Override
     public void deleteAll();
 
-    public CustomUser findByHashValidation(String hash);
     public CustomUser findByUsername(String username);
-    public CustomUser findByUsernameAndIsValidMail(String username, String isValidMail);
-
-    public List<CustomUser> findAllByGlobalUserIdInOrderBySecondName(Iterable<Integer> globalUserIdList);
-
 }

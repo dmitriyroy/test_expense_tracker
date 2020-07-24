@@ -1,11 +1,13 @@
 package dmroy.expensetracker.service;
 
+import dmroy.expensetracker.model.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import UserDetails;
-import UserDetailsService;
-import UsernameNotFoundException;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import dmroy.expensetracker.model.CustomUser;
 
@@ -16,37 +18,20 @@ import java.util.List;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    UserService userService;
+    CustomUserService customUserService;
+    @Autowired
+    UserRoleService userRoleService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//        GlobalUser globalUser = this.globalUserService.findByUsername(username.trim().toLowerCase());
-        CustomUser customUser = this.userService.findByUsername(username.trim());
-
-//        GlobalUser globalUser = this.globalUserService.findByUsernameAndIsValidMail(username,"Y");
-//        if(globalUser == null) {
-//            globalUser = this.globalUserService.findByMail(username);
-//            globalUser = this.globalUserService.findByMailAndIsValidMail(username,"Y");
-//        }
-
+        CustomUser customUser = this.customUserService.findByUsername(username.trim());
         if (customUser == null) {
             System.out.println("User not found! " + username);
             throw new UsernameNotFoundException("User " + username + " was not found in the database");
-//            return null;
         }
-
         // [ROLE_USER, ROLE_ADMIN,..]
-//        EmployeeRole employeeRole = this.employeeRoleService.findById(employee.getRoleId());
-////        System.out.println("===========================================> employeeRole = " + employeeRole);
-//        String roleName = employeeRole.getRoleName();
-////        System.out.println("===========================================> roleName = " + roleName);
-//        String roleName = "ROLE_GLOBAL_USER";
-        String roleName = "";
-        if(customUser.getIsValidMail() != null && customUser.getIsValidMail().equals("Y")){
-            roleName = "ROLE_ADMIN";
-        }else{
-            roleName = "ROLE_WAIT_VERIF";
-        }
+        UserRole userRole = this.userRoleService.findById(customUser.getRoleId());
+        String roleName = userRole.getRoleName();
         List<GrantedAuthority> grantList = new ArrayList<>();
         if (roleName != null) {
             // USER, ADMIN,..

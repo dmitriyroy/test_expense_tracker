@@ -1,3 +1,10 @@
+function viewExpense(expenseId) {
+    window.open("/expense?expid="+expenseId, "_self");
+}
+function editExpense(expenseId) {
+    window.open("/expense-edit?expid="+expenseId, "_self");
+}
+
 
 function editGlobalUser(level, enterpriseId, employeeId){
     var url = "/global-user-edit?l=" + level;
@@ -1351,9 +1358,9 @@ function deleteCookie(cname) {
 function setToggleMenuLeftCookie(){
     var pageTopClass = document.getElementById('page-top').className;
     if(pageTopClass != null && pageTopClass.includes('sidebar-toggled')){
-        deleteCookie('ToggleMenuLeft');
+        deleteCookie('ExpenseTrackerToggleMenuLeft');
     }else{
-        setCookie('ToggleMenuLeft','1',365)
+        setCookie('ExpenseTrackerToggleMenuLeft','1',365)
     }
     // alert('pageTopClass : ' + pageTopClass);
     // var accordionSidebarClass = document.getElementById('accordionSidebar').className;
