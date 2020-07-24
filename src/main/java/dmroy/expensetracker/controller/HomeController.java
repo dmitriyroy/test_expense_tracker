@@ -87,4 +87,10 @@ public class HomeController {
         CustomUser customUser1 = customUserService.addCustomUser(fName, sName, username, password, 2);
         return "redirect:/registration";
     }
+
+    @GetMapping(value = {"/registration"})
+    public String registrationGet() {
+        log.debug("redirect POST -> GET (from /registration POST to /registration GET) form...");
+        return "redirect:/login";
+    }
 }
