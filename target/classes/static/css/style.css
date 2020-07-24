@@ -67,6 +67,10 @@ a.text-darkgreen:focus,a.text-darkgreen:hover{
     border-color:#326e18
 }
 
+.modal-dialog {
+    max-width: 515px;
+    margin: 1.75rem auto;
+}
 
 .verification_mail_block{
     width: 700px;
