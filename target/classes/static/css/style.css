@@ -1,0 +1,321 @@
+html,body{
+    margin:0;
+    padding:0;
+}
+
+/* ------ */
+
+.bg-gradient-darkgreen{
+    background-color:#233609;
+    background-image:linear-gradient(180deg,
+    #233609 10%,
+    #314e0d 100%);
+    background-size:cover
+}
+.text-darkgreen{
+    color: #326e18 !important
+}
+a.text-darkgreen:focus,a.text-darkgreen:hover{
+    color: #233609 !important
+}
+.border-left-darkgreen{
+    border-left:.25rem solid #233609!important
+}
+.border-bottom-darkgreen{
+    border-bottom:.25rem solid #233609!important
+}
+.border-top-darkgreen {
+    border-right:.25rem solid #233609!important;
+}
+.border-bottom-darkgreen{
+    border-top:.25rem solid #233609!important;
+}
+.btn-darkgreen{color:#fff;background-color:#326e18;border-color:#233609}
+.btn-darkgreen:hover{color:#fff;background-color:#326e18;border-color:#233609}
+.btn-darkgreen.focus,.btn-darkgreen:focus{box-shadow:0 0 0 .2rem #669746}
+.btn-darkgreen.disabled,.btn-darkgreen:disabled{color:#fff;background-color:#326e18;border-color:#233609}
+.btn-darkgreen:not(:disabled):not(.disabled).active,.btn-darkgreen:not(:disabled):not(.disabled):active,.show>.btn-darkgreen.dropdown-toggle{color:#fff;background-color: #326e18;border-color:#233609}
+.btn-darkgreen:not(:disabled):not(.disabled).active:focus,.btn-darkgrey:not(:disabled):not(.disabled):active:focus,.show>.btn-darkgrey.dropdown-toggle:focus{box-shadow:0 0 0 .2rem #669746}
+/* ------ */
+
+.active-darkgreen {
+     color: #326e18 !important;
+     font-weight: 700 !important;
+ }
+
+.page-link-darkgreen{
+    position:relative;
+    display:block;
+    padding:.5rem .75rem;
+    margin-left:-1px;
+    line-height:1.25;
+    color:#326e18;
+    background-color:#fff;
+    border:1px solid #dddfeb
+}
+.page-link-darkgreen:hover{
+    z-index:2;
+    color:#326e18;
+    text-decoration:none;
+    background-color:#eaecf4;
+    border-color:#dddfeb
+}
+.active .page-link-darkgreen{
+    z-index:1;
+    color:#fff;
+    background-color:#326e18;
+    border-color:#326e18
+}
+
+
+.verification_mail_block{
+    width: 700px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+.container_center{
+    margin: 0 auto;
+}
+.exist_user_alert{
+    color: red;
+    width: 100%;
+    text-align: center;
+}
+.crm_name{
+    /*color: #FFFFFF;*/
+    margin: 30px auto -30px;
+    z-index: 1;
+}
+.crm_name a{
+    color: #ffffff;
+    text-decoration: underline;
+}
+.crm_name a:hover{
+    color: #444444;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.fa-l-2{
+    margin-left: -10px;
+    margin-right: 5px;
+}
+.border-right-primary{
+    border-right:.25rem solid #4e73df!important;
+}
+.border-top-primary{
+    border-top:.25rem solid #4e73df!important;
+}
+.border-top-info{
+    border-right:.25rem solid #36b9cc!important;
+}
+.border-bottom-info{
+    border-top:.25rem solid #36b9cc!important;
+}
+.border-top-success {
+    border-right:.25rem solid #1cc88a!important;
+}
+.border-bottom-success{
+    border-top:.25rem solid #1cc88a!important;
+}
+.form-horizontal{
+    padding-top: 15px;
+}
+.control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: right;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #555555;
+}
+.sex-radio{
+    width: 30px !important;
+    margin-top: 10px;
+}
+
+/*table tr:first-child {*/
+
+.last_table_line{
+}
+.field_lines_3, .field_lines_2{
+    width: 100%;
+}
+.field_line_button{
+    height: 40px;
+}
+.field_data_button{
+    height: 33px;
+}
+.field_line{
+    width: 100%;
+}
+.field_label{
+    width: 100%;
+    font-size: 0.6em;
+    float: left;
+    /*color: #8b89a6;*/
+    color: #a87652;
+    font-weight: bold;
+}
+.field_label_letter_parts{
+    /*width: 100%;*/
+    font-size: 0.6em;
+    /*float: left;*/
+    /*color: #8b89a6;*/
+    color: #a87652;
+    font-weight: bold;
+}
+.letter_parts_table{
+    margin: 0 auto;
+}
+.field_data{
+    width: 100%;
+    font-size: 0.95em;
+    /*height: 25px;*/
+    min-height: 25px;
+    overflow: hidden;
+}
+.field_data_2_row{
+    width: 100%;
+    height: 63px;
+}
+.field_data_3_row{
+    width: 100%;
+    height: 94px;
+}
+.font_red{
+    /*font-weight: bold;*/
+    color: rgba(255,0,0, 1);
+}
+.client_comment{
+    width: 200px;
+    font-size: 0.8em;
+    overflow: hidden;
+}
+.client_comment_short{
+    width: 200px;
+    font-size: 1em;
+    overflow: hidden;
+}
+
+/*end*/
+
+.closed_task{
+    background-color: lightgray;
+}
+
+.overdue_task{
+    background-color: rgba(255,0,0, 0.1);
+}
+.readiness{
+    border: 1px solid lightgrey;
+}
+.readiness_back{
+    background-color: lightgreen;
+    width: 100%;
+}
+.readiness_data{
+    position: absolute;
+    width: 100%;
+}
+.comments_table_name{
+    background: #8e8e8e;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: 1px solid grey;
+    color: whitesmoke;
+}
+.comments_table_col_top{
+    border-top: 1px solid grey;
+}
+.comments_table_col_bottom{
+    border-bottom: 1px solid grey;
+}
+.empty_line_50{
+    width: 100%;
+    height: 50px;
+}
+#product-image-add{
+    /*width: 150px;*/
+    /*height: 150px;*/
+    /*!*margin: 0 auto;*!*/
+    /*margin: 5px 0 0 10px;*/
+}
+#profilePhoto{
+    margin: 5px 0px 0px 0px;
+}
+.profile_photo_td_size{
+    width: 120px;
+}
+.dismissed_employee{
+    background-color: #8e8e8e;
+    color: darkgreen;
+    display: none;
+}
+.margin_top_20{
+    margin-top: -20px;
+}
+
+.dash-sprite-link{
+    cursor: pointer;
+}
+.dash-sprite-link:hover{
+    background-color: #f2f2f2;
+}
+.text-underline{
+    text-decoration: underline;
+}
+.add_client_mailing_button{
+    background: #290065;
+    /*border-radius: 30px;*/
+    /*margin: 0 0 5px 345px;*/
+    /*font-size: 30px;*/
+    color: white;
+    border: none;
+}
+
+.font-size-08{
+    font-size: 0.8em;
+}
+
+.tariff-name{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.tariff-full-price{
+    font-size: 1.3em;
+    /*font-weight: bold;*/
+    background-color: #fff5c1;
+}
+
+.get-pay-select{
+    margin-right:10px;
+}
+
+.privacy-policy{
+    font-size: 0.9em;
+    text-decoration: underline;
+}
+
+.noPayMenuItem{
+    background-color: #eee !important;
+    color: #bbb !important;
+}
+
+#mailUsBtn{
+    width: 135px;
+    cursor: pointer;
+}
+#video_about_ukrcrm {
+    height: 450px;
+}
+
+.taskEnterpriseName{
+    font-size: 0.7em;
+    font-weight: bold;
+    margin-top: -10px;
+}
+.padding-0{
+    padding: 0;
+}
