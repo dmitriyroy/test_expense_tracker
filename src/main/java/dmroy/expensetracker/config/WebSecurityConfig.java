@@ -21,7 +21,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/login",
+                    .antMatchers(
+                            "/login",
                             "/registration/**",
                             "/new-registration",
                             "/api/**",
@@ -31,7 +32,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                             "/css/**",
                             "/scss/**",
                             "/js/**",
-                            "/vendor/**").permitAll()
+                            "/vendor/**"
+                    ).permitAll()
                     // прописываем все урлы, куда есть доступ верифицированным пользователям
                     // т.е. (прошедшим email-валидацию)
                     .antMatchers("/index","/")

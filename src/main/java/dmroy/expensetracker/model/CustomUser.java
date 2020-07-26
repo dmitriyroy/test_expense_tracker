@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
@@ -46,7 +47,16 @@ public class CustomUser implements Serializable {
         return ((secondName != null ? secondName.trim() + " " : "") + (firstName != null ? firstName.trim() : "")).trim();
     }
 
-    @Override
+    public String getRegistrationDttmStringYYYYMMDDHHMMSS() {
+        return registrationDttm == null ? "" : new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(registrationDttm);
+    }
+
+    public String getRegistrationDttmStringYYYYMMDD() {
+        return registrationDttm == null ? "" : new SimpleDateFormat("yyyy-MM-dd").format(registrationDttm);
+    }
+
+
+        @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

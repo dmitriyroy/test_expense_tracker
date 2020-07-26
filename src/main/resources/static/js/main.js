@@ -1,3 +1,12 @@
+function viewCustomUser(userId) {
+    window.open("/custom-user?cuid="+userId, "_self");
+}
+function editCustomUser(userId) {
+    window.open("/custom-user-edit?cuid="+userId, "_self");
+}
+function editProfile() {
+    window.open("/profile-edit", "_self");
+}
 function viewExpense(expenseId) {
     window.open("/expense?expid="+expenseId, "_self");
 }
@@ -14,7 +23,7 @@ function checkRegistrationForm(){
         if(document.getElementById('password1').value !=
             document.getElementById('password2').value){
             submitOk = 0;
-            alert("Пароли не совпадают.");
+            alert("Password mismatch.");
             document.getElementById('password1').style.borderColor = "#e83e8c";
             document.getElementById('password1').focus();
         } else{
@@ -38,6 +47,106 @@ function checkRegistrationForm(){
     if(submitOk){
         document.getElementById('checkForm').disabled = true;
         document.registration_form.submit();
+    }else {
+    }
+}
+function submitAddCustomUserForm(){
+    var submitOk = 1;
+
+    if(document.getElementById('username').value.trim() == ''){
+        submitOk = 0;
+        document.getElementById('username').style.borderColor = "#e83e8c";
+        document.getElementById('username').focus();
+    }else{
+        document.getElementById('username').style.borderColor = "#cccccc";
+    }
+
+    if(document.getElementById('fName').value.trim() == ''){
+        submitOk = 0;
+        document.getElementById('fName').style.borderColor = "#e83e8c";
+        document.getElementById('fName').focus();
+    }else{
+        document.getElementById('fName').style.borderColor = "#cccccc";
+    }
+
+    // AJAX - check if user exist
+    // var userExist = false;
+    var username = document.getElementById('username').value;
+    if(username == 'admin'){
+        submitOk = 0;
+        alert('This user already exists. Try again.');
+        document.getElementById('username').style.borderColor = "#e83e8c";
+        document.getElementById('username').focus();
+        return;
+    }else{
+        document.getElementById('username').style.borderColor = "#cccccc";
+    }
+
+    if(document.getElementById('password1').value.trim() == ''){
+        submitOk = 0;
+        document.getElementById('password1').style.borderColor = "#e83e8c";
+        document.getElementById('password1').focus();
+    }else if(document.getElementById('password2').value == ''){
+        submitOk = 0;
+        document.getElementById('password2').style.borderColor = "#e83e8c";
+        document.getElementById('password2').focus();
+    }else{
+        if(document.getElementById('password1').value !=
+            document.getElementById('password2').value){
+            submitOk = 0;
+            alert("Password mismatch");
+            document.getElementById('password1').style.borderColor = "#e83e8c";
+            document.getElementById('password2').style.borderColor = "#e83e8c";
+        } else{
+            document.getElementById('password1').style.borderColor = "#cccccc";
+            document.getElementById('password2').style.borderColor = "#cccccc";
+        }
+    }
+
+    if(submitOk){
+        document.getElementById('checkForm').disabled = true;
+        document.add_custom_user_form.submit();
+    }else {
+    }
+}
+function submitEditCustomUserForm(){
+    var submitOk = 1;
+
+    if(document.getElementById('fName').value.trim() == ''){
+        submitOk = 0;
+        document.getElementById('fName').style.borderColor = "#e83e8c";
+        document.getElementById('fName').focus();
+    }else{
+        document.getElementById('fName').style.borderColor = "#cccccc";
+    }
+
+    if(document.getElementById('password1').value.trim() == ''
+        && document.getElementById('password2').value.trim() == ''){
+        submitOk = 1;
+    }else if(document.getElementById('password1').value.trim() == ''){
+        submitOk = 0;
+        document.getElementById('password1').style.borderColor = "#e83e8c";
+        document.getElementById('password1').focus();
+    }else if(document.getElementById('password2').value.trim() == ''){
+        submitOk = 0;
+        document.getElementById('password2').style.borderColor = "#e83e8c";
+        document.getElementById('password2').focus();
+    }else{
+        if(document.getElementById('password1').value !=
+            document.getElementById('password2').value){
+            submitOk = 0;
+            alert("Password mismatch");
+            document.getElementById('password1').style.borderColor = "#e83e8c";
+            document.getElementById('password2').style.borderColor = "#e83e8c";
+        } else{
+            document.getElementById('password1').style.borderColor = "#cccccc";
+            document.getElementById('password2').style.borderColor = "#cccccc";
+        }
+    }
+
+    if(submitOk){
+        document.getElementById('checkForm').disabled = true;
+        document.update_custom_user_form.submit();
     }else {
     }
 }

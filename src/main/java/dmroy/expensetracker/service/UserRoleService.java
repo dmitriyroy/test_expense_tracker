@@ -7,6 +7,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 @Service
 public class UserRoleService {
 
@@ -36,5 +40,14 @@ public class UserRoleService {
         userRoleRepository.delete(userRole);
     }
     public void deleteAll() { userRoleRepository.deleteAll(); }
+
+    public List<UserRole> getAll(){
+        List<UserRole> result = new ArrayList<>();
+        Iterator<UserRole> userRoleIterator = this.findAll().iterator();
+        while(userRoleIterator.hasNext()){
+            result.add(userRoleIterator.next());
+        }
+        return result;
+    }
 
 }

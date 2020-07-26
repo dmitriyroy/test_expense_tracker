@@ -36,28 +36,22 @@ public class ExpenseController {
     CustomUserService customUserService;
 
     @GetMapping(value = {"/expenses"})
-    public String expenses(@PageableDefault(sort={"expenseDttm"}, direction = Sort.Direction.DESC) Pageable pageable,
-                          Model model, Principal principal, HttpServletRequest request) {
+    public String expenses(Model model, Principal principal, HttpServletRequest request) {
         User user = (User) ((Authentication) principal).getPrincipal();
         log.debug("show /expenses form... - user : " + user.getUsername());
-        CustomUser customUser = customUserService.findByUsername(user.getUsername());
-//        Page<Expense> expensePage = expenseService.findAllByUserIdPageable(customUser.getUserId(),pageable);
-//        model.addAttribute("page",expensePage);
-//        model.addAttribute("urlBase", "expenses");
-//        model.addAttribute("header", "Your Expenses: " + (expensePage == null ? 0 : expensePage.getTotalElements()) + " pcs.");
+        CustomUser currentUser = customUserService.findByUsername(user.getUsername());
 
-        List<Expense> expenses = expenseService.findAllByUserId(customUser.getUserId());
+        List<Expense> expenses = expenseService.findAllByUserId(currentUser.getUserId());
         expenses = expenses == null ? new ArrayList<>() : expenses;
         model.addAttribute("header", "Your Expenses: "
-//                + expenses == null ? 0 : expenses.size()
-                + expenses.size()
+                + expenses == null ? 0 : expenses.size()
                 + " pcs.");
         model.addAttribute("expenses", expenses);
 
         model.addAttribute("activeMenuLevel_1", "collapseExpense");
         model.addAttribute("activeMenuLevel_2", "expense");
 
-        model.addAttribute("currentUser", customUser);
+        model.addAttribute("currentUser", currentUser);
         model.addAttribute("request", request);
         return "expenses";
     }
@@ -148,7 +142,7 @@ public class ExpenseController {
                                      @RequestParam (value = "minutes", required = false) Integer minutes,
                                      @RequestParam (value = "seconds", required = false) Integer seconds
     ) throws ParseException {
-        log.debug("post form /expense-add form...");
+        log.debug("post form /expense-update form...");
 
         String hoursStr = hours.intValue() < 10 ? " 0" + hours.intValue() :  " " + hours.toString();
         String minutesStr = minutes.intValue() < 10 ? ":0" + minutes.intValue() :  ":" + minutes.toString();

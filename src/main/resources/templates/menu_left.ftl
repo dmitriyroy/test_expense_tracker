@@ -23,8 +23,8 @@
             <div id="collapseUser" class="collapse <#if activeMenuLevel_1?? && activeMenuLevel_1 == 'collapseUser' && toggleMenu != '1'>show</#if>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">users:</h6>
-                    <a class="collapse-item <#if activeMenuLevel_2?? && activeMenuLevel_2 == 'users'>active-darkgreen</#if>" href="/users">All users</a>
-                    <a class="collapse-item <#if activeMenuLevel_2?? && activeMenuLevel_2 == 'user-new'>active-darkgreen</#if>" href="/user-new"><i class="fas fa-plus-circle fa-l-2"></i>Add user</a>
+                    <a class="collapse-item <#if activeMenuLevel_2?? && activeMenuLevel_2 == 'custom-users'>active-darkgreen</#if>" href="/custom-users">All users</a>
+                    <a class="collapse-item <#if activeMenuLevel_2?? && activeMenuLevel_2 == 'custom-user-new'>active-darkgreen</#if>" href="/custom-user-new"><i class="fas fa-plus-circle fa-l-2"></i>Add user</a>
                 </div>
             </div>
         </li>
