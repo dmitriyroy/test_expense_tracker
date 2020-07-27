@@ -45,7 +45,7 @@
                   </tfoot>
                   <tbody>
                   <#list customUsers as customUser>
-                    <tr style="cursor: pointer;" onclick="viewCustomUser(${customUser.getUserIdString()!0})">
+                    <tr class="cursor_pointer" onclick="viewCustomUser(${customUser.getUserIdString()!0})">
                       <th>${customUser.getUserIdString()!0}</th>
                       <th>${customUser.username!""}</th>
                       <th>${customUser.firstName!""}</th>
@@ -68,9 +68,6 @@
         <!-- /.container-fluid -->
       </div>
       <!-- End of Main Content -->
-      <!-- Footer -->
-<#--      <#include "*/blocks/copyright.ftl">-->
-      <!-- End of Footer -->
     </div>
     <!-- End of Content Wrapper -->
   </div>

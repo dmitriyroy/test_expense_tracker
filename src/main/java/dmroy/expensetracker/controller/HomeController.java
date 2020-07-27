@@ -9,13 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import dmroy.expensetracker.model.CustomUser;
 import dmroy.expensetracker.service.*;
-import dmroy.expensetracker.utils.WebUtils;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 import java.security.Principal;
-import java.text.ParseException;
-import java.util.List;
 
 @Controller
 @Slf4j

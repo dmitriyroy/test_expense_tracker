@@ -82,7 +82,7 @@
                   </tfoot>
                   <tbody>
                   <#list expenses as expense>
-                    <tr style="cursor: pointer;" onclick="viewExpense(${expense.getExpenseIdString()!0})">
+                    <tr class="cursor_pointer" onclick="viewExpense(${expense.getExpenseIdString()!0})">
                       <th>${expense.getExpenseIdString()!0}</th>
                       <th>${expense.getExpenseDttmStringYYYYMMDDHHMMSS()!""}</th>
                       <th>${expense.getExpenseAmount()!0}</th>
@@ -100,9 +100,6 @@
         <!-- /.container-fluid -->
       </div>
       <!-- End of Main Content -->
-      <!-- Footer -->
-<#--      <#include "*/blocks/copyright.ftl">-->
-      <!-- End of Footer -->
     </div>
     <!-- End of Content Wrapper -->
   </div>

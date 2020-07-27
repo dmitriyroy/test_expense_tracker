@@ -2,7 +2,6 @@ package dmroy.expensetracker.service;
 
 import dmroy.expensetracker.repository.CustomUserRepository;
 import dmroy.expensetracker.utils.StringUtils;
-import freemarker.template.utility.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
