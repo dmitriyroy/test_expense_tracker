@@ -1,5 +1,6 @@
 package dmroy.expensetracker.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -33,30 +34,35 @@ public class CustomUser implements Serializable {
     @Column(name = "second_name")
     private String secondName;
     @Column(name = "encrypted_password")
+    @JsonIgnore
     private String encryptedPassword;
     @Column(name = "registration_dttm")
     private Date registrationDttm;
 
 
+    @JsonIgnore
     public String getUserIdString() {
         String result = userId.toString();
         return result.replaceAll(" ","");
     }
 
+    @JsonIgnore
     public String getFI(){
         return ((secondName != null ? secondName.trim() + " " : "") + (firstName != null ? firstName.trim() : "")).trim();
     }
 
+    @JsonIgnore
     public String getRegistrationDttmStringYYYYMMDDHHMMSS() {
         return registrationDttm == null ? "" : new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(registrationDttm);
     }
 
+    @JsonIgnore
     public String getRegistrationDttmStringYYYYMMDD() {
         return registrationDttm == null ? "" : new SimpleDateFormat("yyyy-MM-dd").format(registrationDttm);
     }
 
 
-        @Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
