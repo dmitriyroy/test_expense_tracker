@@ -1,6 +1,7 @@
 <#-- Freemarker template -->
 <html>
 <#include "*/page_head.ftl">
+<#--<#import "*/pager.ftl" as p>-->
 <body id="page-top" <#if toggleMenu == '1'>class="sidebar-toggled"</#if>>
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -18,7 +19,7 @@
 <#--          <div class="h3 mb-4 text-gray-800 text-center mx-auto">${header!""}</div>-->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Your Expenses</h6>
+              <h6 class="m-0 font-weight-bold text-primary">All Users</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -26,29 +27,36 @@
                   <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Date</th>
-                    <th>Amount</th>
-                    <th>Description</th>
-                    <th>Comment</th>
+                    <th>username</th>
+                    <th>First Name</th>
+                    <th>Second Name</th>
+                    <th>Date Registration</th>
+                    <th>Role</th>
                   </tr>
                   </thead>
                   <tfoot>
                   <tr>
                     <th>ID</th>
-                    <th>Date</th>
-                    <th>Amount</th>
-                    <th>Description</th>
-                    <th>Comment</th>
+                    <th>username</th>
+                    <th>First Name</th>
+                    <th>Second Name</th>
+                    <th>Date Registration</th>
+                    <th>Role</th>
                   </tr>
                   </tfoot>
                   <tbody>
-                  <#list expenses as expense>
-                    <tr onclick="viewExpense(${expense.getExpenseIdString()!0})">
-                      <th>${expense.getExpenseIdString()!0}</th>
-                      <th>${expense.getExpenseDttmStringYYYYMMDDHHMMSS()!""}</th>
-                      <th>${expense.getExpenseAmount()!0}</th>
-                      <th>${expense.getExpenseDescription()!""}</th>
-                      <th>${expense.getExpenseComment()!""}</th>
+                  <#list customUsers as customUser>
+                    <tr onclick="viewCustomUser(${customUser.getUserIdString()!0})">
+                      <th>${customUser.getUserIdString()!0}</th>
+                      <th>${customUser.username!""}</th>
+                      <th>${customUser.firstName!""}</th>
+                      <th>${customUser.secondName!""}</th>
+                      <th>${customUser.getRegistrationDttmStringYYYYMMDDHHMMSS()!""}</th>
+                      <#list userRoles as userRole>
+                        <#if userRole.roleId == customUser.roleId>
+                          <th>${userRole.roleDescription!""}</th>
+                        </#if>
+                      </#list>
                     </tr>
                   </#list>
                   </tbody>

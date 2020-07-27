@@ -27,18 +27,14 @@ public class HomeController {
     CustomUserService customUserService;
 
     @RequestMapping(value = {"/" , "/index"})
-    public String index(Model model, Principal principal, HttpServletRequest request) throws IOException {
+    public String index(Principal principal) {
         User user = (User) ((Authentication) principal).getPrincipal();
         log.debug("show /index page... - user : " + user.getUsername());
         CustomUser currentCustomUser = customUserService.findByUsername(user.getUsername());
-        model.addAttribute("currentUser", currentCustomUser);
-        if(request != null) {
-            model.addAttribute("request", request);
-        }
         if(currentCustomUser == null){
             return "registration_form";
         }
-        return "index";
+        return "redirect:/expenses";
     }
 
     @GetMapping(value = "/login")

@@ -1,7 +1,6 @@
 <#-- Freemarker template -->
 <html>
 <#include "*/page_head.ftl">
-<#--<#import "*/pager.ftl" as p>-->
 <body id="page-top" <#if toggleMenu == '1'>class="sidebar-toggled"</#if>>
   <!-- Page Wrapper -->
   <div id="wrapper">
