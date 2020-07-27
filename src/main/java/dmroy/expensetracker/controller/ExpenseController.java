@@ -43,10 +43,13 @@ public class ExpenseController {
 
         List<Expense> expenses = expenseService.findAllByUserId(currentUser.getUserId());
         expenses = expenses == null ? new ArrayList<>() : expenses;
-        model.addAttribute("header", "Your Expenses: "
-                + expenses == null ? 0 : expenses.size()
-                + " pcs.");
+        model.addAttribute("header", "My Expenses: " + (expenses == null ? 0 : expenses.size()) + " pcs.");
         model.addAttribute("expenses", expenses);
+
+        Double[] currentWeek = expenseService.currentWeekExpenses(currentUser.getUserId());
+        model.addAttribute("currentWeek", currentWeek);
+        Double[] previousWeek = expenseService.previousWeekExpenses(currentUser.getUserId());
+        model.addAttribute("previousWeek", previousWeek);
 
         model.addAttribute("activeMenuLevel_1", "collapseExpense");
         model.addAttribute("activeMenuLevel_2", "expense");

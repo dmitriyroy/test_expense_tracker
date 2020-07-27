@@ -1,18 +1,3 @@
-function viewCustomUser(userId) {
-    window.open("/custom-user?cuid="+userId, "_self");
-}
-function editCustomUser(userId) {
-    window.open("/custom-user-edit?cuid="+userId, "_self");
-}
-function editProfile() {
-    window.open("/profile-edit", "_self");
-}
-function viewExpense(expenseId) {
-    window.open("/expense?expid="+expenseId, "_self");
-}
-function editExpense(expenseId) {
-    window.open("/expense-edit?expid="+expenseId, "_self");
-}
 function checkRegistrationForm(){
     var submitOk = 1;
     if(document.getElementById('password1').value.trim() == ''){
@@ -49,6 +34,21 @@ function checkRegistrationForm(){
         document.registration_form.submit();
     }else {
     }
+}
+function viewCustomUser(userId) {
+    window.open("/custom-user?cuid="+userId, "_self");
+}
+function editCustomUser(userId) {
+    window.open("/custom-user-edit?cuid="+userId, "_self");
+}
+function editProfile() {
+    window.open("/profile-edit", "_self");
+}
+function viewExpense(expenseId) {
+    window.open("/expense?expid="+expenseId, "_self");
+}
+function editExpense(expenseId) {
+    window.open("/expense-edit?expid="+expenseId, "_self");
 }
 function submitAddCustomUserForm(){
     var submitOk = 1;

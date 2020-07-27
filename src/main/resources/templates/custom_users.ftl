@@ -24,7 +24,7 @@
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
-                  <tr>
+                  <tr class="text-darkgreen">
                     <th>ID</th>
                     <th>username</th>
                     <th>First Name</th>
@@ -34,7 +34,7 @@
                   </tr>
                   </thead>
                   <tfoot>
-                  <tr>
+                  <tr class="text-darkgreen">
                     <th>ID</th>
                     <th>username</th>
                     <th>First Name</th>
@@ -45,7 +45,7 @@
                   </tfoot>
                   <tbody>
                   <#list customUsers as customUser>
-                    <tr onclick="viewCustomUser(${customUser.getUserIdString()!0})">
+                    <tr class="cursor_pointer" onclick="viewCustomUser(${customUser.getUserIdString()!0})">
                       <th>${customUser.getUserIdString()!0}</th>
                       <th>${customUser.username!""}</th>
                       <th>${customUser.firstName!""}</th>
@@ -68,9 +68,6 @@
         <!-- /.container-fluid -->
       </div>
       <!-- End of Main Content -->
-      <!-- Footer -->
-<#--      <#include "*/blocks/copyright.ftl">-->
-      <!-- End of Footer -->
     </div>
     <!-- End of Content Wrapper -->
   </div>

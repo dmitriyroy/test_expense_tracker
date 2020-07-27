@@ -33,34 +33,34 @@ a.text-darkgreen:focus,a.text-darkgreen:hover{
 
 /* ------ */
 
-.active-darkgreen {
-     color: #326e18 !important;
-     font-weight: 700 !important;
- }
+/*.active-darkgreen {*/
+/*     color: #326e18 !important;*/
+/*     font-weight: 700 !important;*/
+/* }*/
 
-.page-link-darkgreen{
-    position:relative;
-    display:block;
-    padding:.5rem .75rem;
-    margin-left:-1px;
-    line-height:1.25;
-    color:#326e18;
-    background-color:#fff;
-    border:1px solid #dddfeb
-}
-.page-link-darkgreen:hover{
-    z-index:2;
-    color:#326e18;
-    text-decoration:none;
-    background-color:#eaecf4;
-    border-color:#dddfeb
-}
-.active .page-link-darkgreen{
-    z-index:1;
-    color:#fff;
-    background-color:#326e18;
-    border-color:#326e18
-}
+/*.page-link-darkgreen{*/
+/*    position:relative;*/
+/*    display:block;*/
+/*    padding:.5rem .75rem;*/
+/*    margin-left:-1px;*/
+/*    line-height:1.25;*/
+/*    color:#326e18;*/
+/*    background-color:#fff;*/
+/*    border:1px solid #dddfeb*/
+/*}*/
+/*.page-link-darkgreen:hover{*/
+/*    z-index:2;*/
+/*    color:#326e18;*/
+/*    text-decoration:none;*/
+/*    background-color:#eaecf4;*/
+/*    border-color:#dddfeb*/
+/*}*/
+/*.active .page-link-darkgreen{*/
+/*    z-index:1;*/
+/*    color:#fff;*/
+/*    background-color:#326e18;*/
+/*    border-color:#326e18*/
+/*}*/
 
 .modal-dialog {
     max-width: 515px;
@@ -75,24 +75,7 @@ a.text-darkgreen:focus,a.text-darkgreen:hover{
     margin-left: -10px;
     margin-right: 5px;
 }
-.border-right-primary{
-    border-right:.25rem solid #4e73df!important;
-}
-.border-top-primary{
-    border-top:.25rem solid #4e73df!important;
-}
-.border-top-info{
-    border-right:.25rem solid #36b9cc!important;
-}
-.border-bottom-info{
-    border-top:.25rem solid #36b9cc!important;
-}
-.border-top-success {
-    border-right:.25rem solid #1cc88a!important;
-}
-.border-bottom-success{
-    border-top:.25rem solid #1cc88a!important;
-}
+
 .form-horizontal{
     padding-top: 15px;
 }
@@ -106,12 +89,12 @@ a.text-darkgreen:focus,a.text-darkgreen:hover{
 }
 /*end*/
 
-.text-underline{
-    text-decoration: underline;
-}
-.font-size-08{
-    font-size: 0.8em;
-}
-.padding-0{
-    padding: 0;
-}
+/*.text-underline{*/
+/*    text-decoration: underline;*/
+/*}*/
+/*.font-size-08{*/
+/*    font-size: 0.8em;*/
+/*}*/
+/*.padding-0{*/
+/*    padding: 0;*/
+/*}*/

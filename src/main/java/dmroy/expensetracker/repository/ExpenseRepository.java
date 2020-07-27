@@ -4,9 +4,12 @@ import dmroy.expensetracker.model.Expense;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,5 +45,16 @@ public interface ExpenseRepository extends PagingAndSortingRepository<Expense, I
 
     public Page<Expense> findAllByExpenseIdIn(List<Integer> expenseIds, Pageable pageable);
     public List<Expense> findAllByExpenseIdIn(List<Integer> expenseIds);
+
+    String expensesByUserIdAndPeriod =
+            " select t1.*                                                " +
+                    "  from expense       as t1                                  " +
+                    "  join user_expenses as t2 on t2.expense_id = t1.expense_id " +
+                    " where t2.user_id = :userId                                 " +
+                    "   and t1.expense_dttm between :dateFrom and :dateTo        ";
+    @Query(value = expensesByUserIdAndPeriod, nativeQuery = true)
+    public List<Expense> findAllByUserIdAndPeriod(@Param("userId") Integer userId,
+                                                  @Param("dateFrom") Date dateFrom,
+                                                  @Param("dateTo") Date dateTo);
 
 }

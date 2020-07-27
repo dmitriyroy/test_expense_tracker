@@ -75,9 +75,6 @@
         <!-- /.container-fluid -->
       </div>
       <!-- End of Main Content -->
-      <!-- Footer -->
-<#--      <#include "*/blocks/copyright.ftl">-->
-      <!-- End of Footer -->
     </div>
     <!-- End of Content Wrapper -->
   </div>
