@@ -32,5 +32,4 @@ public class CustomUserRestController {
         CustomUser customUser = customUserService.findById(customUserId);
         return ResponseEntity.status(HttpStatus.OK).body(customUser);
     }
-
 }
