@@ -32,24 +32,36 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                             "/css/**",
                             "/scss/**",
                             "/js/**",
-                            "/vendor/**"
+                            "/vendor/**",
+                            "/403"
                     ).permitAll()
-                    // прописываем все урлы, куда есть доступ верифицированным пользователям
-                    // т.е. (прошедшим email-валидацию)
-                    .antMatchers("/index","/")
+                    .antMatchers("/index","/",
+                            "/profile-view",
+                            "/profile-edit",
+                            "/profile-update",
+                            "/profile-update",
+                            "/expenses",
+                            "/expense",
+                            "/expense-new",
+                            "/expense-add",
+                            "/expense-edit",
+                            "/expense-update"
+                            )
                         .access("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-//                    .antMatchers("/workplace/**",
-//                        "/test/**",
-//                        "/profile/**",
-//                        "/workplace/**")
-//                        .access("hasAnyRole('ROLE_ADMIN')")
+                    .antMatchers("/custom-users",
+                        "/custom-user",
+                        "/custom-user-edit",
+                        "/custom-user-add",
+                        "/custom-user-update",
+                        "/custom-user-new")
+                        .access("hasAnyRole('ROLE_ADMIN')")
                     .anyRequest()
                     .authenticated()
                 .and()
                     .formLogin()
                     .loginPage("/login").permitAll()
-//                .and()
-//                    .exceptionHandling().accessDeniedPage("/403")
+                .and()
+                    .exceptionHandling().accessDeniedPage("/403")
                 .and()
                     .logout()
                     .logoutSuccessUrl("/login").permitAll()

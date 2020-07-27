@@ -91,6 +91,9 @@ public class ExpenseService {
 
         return expense;
     }
+    public List<Expense> findAllByUserIdAndPeriod(Integer userId,Date dateFrom, Date dateTo){
+        return expenseRepository.findAllByUserIdAndPeriod(userId,dateFrom,dateTo);
+    }
 
     public Double[] currentWeekExpenses(Integer userId){
         return getWeekData(userId, new Date());

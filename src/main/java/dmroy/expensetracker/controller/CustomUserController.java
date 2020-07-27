@@ -241,7 +241,7 @@ public class CustomUserController {
         return "custom_user_edit";
     }
 
-    @PostMapping(path = "/profile-update")
+        @PostMapping(path = "/profile-update")
     public String profileUpdatePost(@RequestParam Integer roleId,
                                     @RequestParam String fName,
                                     @RequestParam String sName,

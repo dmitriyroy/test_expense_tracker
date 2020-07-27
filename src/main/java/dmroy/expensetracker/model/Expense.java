@@ -1,5 +1,6 @@
 package dmroy.expensetracker.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -33,27 +34,33 @@ public class Expense implements Serializable {
     @Column(name = "expense_dttm")
     private Date expenseDttm;
 
+    @JsonIgnore
     public String getExpenseIdString() {
         String result = expenseId.toString();
         return result.replaceAll(" ","");
     }
 
+    @JsonIgnore
     public String getExpenseDttmStringYYYYMMDDHHMMSS() {
         return expenseDttm == null ? "" : new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(expenseDttm);
     }
 
+    @JsonIgnore
     public String getExpenseDttmStringYYYYMMDD() {
         return expenseDttm == null ? "" : new SimpleDateFormat("yyyy-MM-dd").format(expenseDttm);
     }
 
+    @JsonIgnore
     public String getExpenseDttmStringHH() {
         return expenseDttm == null ? "" : new SimpleDateFormat("HH").format(expenseDttm);
     }
 
+    @JsonIgnore
     public String getExpenseDttmStringMM() {
         return expenseDttm == null ? "" : new SimpleDateFormat("mm").format(expenseDttm);
     }
 
+    @JsonIgnore
     public String getExpenseDttmStringSS() {
         return expenseDttm == null ? "" : new SimpleDateFormat("ss").format(expenseDttm);
     }

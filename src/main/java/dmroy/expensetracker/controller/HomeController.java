@@ -1,5 +1,6 @@
 package dmroy.expensetracker.controller;
 
+import dmroy.expensetracker.model.Expense;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -85,4 +86,13 @@ public class HomeController {
         log.debug("redirect POST -> GET (from /registration POST to /registration GET) form...");
         return "redirect:/login";
     }
+
+
+    @GetMapping(value = {"/403"})
+    public String accessDenied_403(Model model, HttpServletRequest request) {
+        log.debug("show /403 form...");
+        model.addAttribute("request", request);
+        return "403";
+    }
+
 }

@@ -1,15 +1,15 @@
 package dmroy.expensetracker.controller.api;
 
 import dmroy.expensetracker.model.Expense;
-import dmroy.expensetracker.model.UserRole;
 import dmroy.expensetracker.service.ExpenseService;
-import dmroy.expensetracker.service.UserRoleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,8 +24,30 @@ public class ExpenseRestController {
     ExpenseService expenseService;
 
     @GetMapping(value = {"/expenses"})
-    public ResponseEntity customUsers(@RequestParam(value="cuid") Integer customUserId) {
+    public ResponseEntity expenses(@RequestParam(value="cuid") Integer customUserId) {
         List<Expense> expenses = expenseService.findAllByUserId(customUserId);
+        return ResponseEntity.status(HttpStatus.OK).body(expenses == null ? new ArrayList<>() : expenses);
+    }
+
+    @GetMapping(value = {"/expenses-current-week"})
+    public ResponseEntity expensesCurrentWeek(@RequestParam(value="cuid") Integer customUserId){
+        Double[] expenses = expenseService.currentWeekExpenses(customUserId);
+        return ResponseEntity.status(HttpStatus.OK).body(expenses == null ? new ArrayList<>() : expenses);
+    }
+
+    @GetMapping(value = {"/expenses-previous-week"})
+    public ResponseEntity expensesPreviousWeek(@RequestParam(value="cuid") Integer customUserId){
+        Double[] expenses = expenseService.previousWeekExpenses(customUserId);
+        return ResponseEntity.status(HttpStatus.OK).body(expenses == null ? new ArrayList<>() : expenses);
+    }
+
+    @GetMapping(value = {"/expenses-period"})
+    public ResponseEntity expensesByPeriod(@RequestParam(value="cuid") Integer customUserId,
+                                           @RequestParam(value="dateFrom") String dateFrom,
+                                          @RequestParam(value="dateTo") String dateTo) throws ParseException {
+        List<Expense> expenses = expenseService.findAllByUserIdAndPeriod(customUserId,
+                new SimpleDateFormat("yyyy-MM-dd").parse(dateFrom),
+                new SimpleDateFormat("yyyy-MM-dd").parse(dateTo));
         return ResponseEntity.status(HttpStatus.OK).body(expenses == null ? new ArrayList<>() : expenses);
     }
 
