@@ -21,7 +21,7 @@
               <div class="form-group row">
                   <label for="username" class="col-md-2 control-label">username*:</label>
                   <div class="col-md-3">
-                      <input type="text" class="form-control" name="username" id="username" required>
+                      <input onkeyup="checkUserExist()" type="text" class="form-control" name="username" id="username" required>
                   </div>
                   <label for="roleId" class="col-md-2 control-label">Role:</label>
                   <div class="col-md-3">

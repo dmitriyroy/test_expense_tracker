@@ -58,7 +58,27 @@ function submitAddCustomUserForm(){
         document.getElementById('username').style.borderColor = "#e83e8c";
         document.getElementById('username').focus();
     }else{
-        document.getElementById('username').style.borderColor = "#cccccc";
+        // AJAX - check if user exist
+        let username = document.getElementById('username').value.trim();
+        fetch(`/api/user-exist?username=${username}`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({username})
+        })
+            .then(res => res.json())
+            .then(res => {
+                var existUser = res.existUser;
+                if (existUser == 'Y') {
+                    document.getElementById("checkForm").disabled = true;
+                    document.getElementById('username').style.borderColor = "#e83e8c";
+                    submitOk = 0;
+                    alert('This user already exists. Try again.');
+                } else {
+                    document.getElementById("checkForm").disabled = false;
+                    document.getElementById('username').style.borderColor = "#44bf2e";
+                }
+            })
+            .catch(() => alert('Something wrong!'));
     }
 
     if(document.getElementById('fName').value.trim() == ''){
@@ -67,19 +87,6 @@ function submitAddCustomUserForm(){
         document.getElementById('fName').focus();
     }else{
         document.getElementById('fName').style.borderColor = "#cccccc";
-    }
-
-    // AJAX - check if user exist
-    // var userExist = false;
-    var username = document.getElementById('username').value;
-    if(username == 'admin'){
-        submitOk = 0;
-        alert('This user already exists. Try again.');
-        document.getElementById('username').style.borderColor = "#e83e8c";
-        document.getElementById('username').focus();
-        return;
-    }else{
-        document.getElementById('username').style.borderColor = "#cccccc";
     }
 
     if(document.getElementById('password1').value.trim() == ''){
@@ -184,6 +191,29 @@ function setToggleMenuLeftCookie(){
     }else{
         setCookie('ExpenseTrackerToggleMenuLeft','1',365)
     }
+}
+
+function checkUserExist(){
+    let username = document.getElementById('username').value.trim();
+    // if(username.length > 2) {
+        fetch(`/api/user-exist?username=${username}`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({username})
+        })
+            .then(res => res.json())
+            .then(res => {
+                var existUser = res.existUser;
+                if (existUser == 'Y') {
+                    document.getElementById("checkForm").disabled = true;
+                    document.getElementById('username').style.borderColor = "#e83e8c";
+                } else {
+                    document.getElementById("checkForm").disabled = false;
+                    document.getElementById('username').style.borderColor = "#44bf2e";
+                }
+            })
+            .catch(() => alert('Something wrong!'));
+    // }
 }
 
 window.onload = function () {

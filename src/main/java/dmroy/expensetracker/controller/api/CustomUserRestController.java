@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,5 +32,30 @@ public class CustomUserRestController {
     public ResponseEntity customUserView(@RequestParam(value="cuid") Integer customUserId) {
         CustomUser customUser = customUserService.findById(customUserId);
         return ResponseEntity.status(HttpStatus.OK).body(customUser);
+    }
+
+    @PostMapping(value = "/user-exist")
+    public ResponseEntity isUsernameExist(@RequestParam(value = "username") String username) {
+        log.warn("======================================================");
+        log.warn("username : " + username);
+        CustomUser customUser = customUserService.findByUsername(username);
+        UserExist userExist = new UserExist();
+        if(customUser != null){
+            userExist.setExistUser("Y");
+        }
+        log.warn("======================================================");
+        return ResponseEntity.status(HttpStatus.OK).body(userExist);
+    }
+
+    class UserExist {
+        String existUser = "N";
+
+        public String getExistUser() {
+            return existUser;
+        }
+
+        public void setExistUser(String existUser) {
+            this.existUser = existUser;
+        }
     }
 }
