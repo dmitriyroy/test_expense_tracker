@@ -35,7 +35,7 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <input name="username" type="text" class="form-control form-control-user" id="exampleInputUsername" required placeholder="Username..." <#if username??>value="${username!""}"</#if>>
+                        <input onkeyup="checkUserExist()"  name="username" type="text" class="form-control form-control-user" id="username" required placeholder="Username..." <#if username??>value="${username!""}"</#if>>
                       </div>
                       <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
