@@ -36,14 +36,11 @@ public class CustomUserRestController {
 
     @PostMapping(value = "/user-exist")
     public ResponseEntity isUsernameExist(@RequestParam(value = "username") String username) {
-        log.warn("======================================================");
-        log.warn("username : " + username);
         CustomUser customUser = customUserService.findByUsername(username);
         UserExist userExist = new UserExist();
         if(customUser != null){
             userExist.setExistUser("Y");
         }
-        log.warn("======================================================");
         return ResponseEntity.status(HttpStatus.OK).body(userExist);
     }
 
